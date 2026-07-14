@@ -17,8 +17,8 @@
             font-family: sans-serif;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
-            padding-bottom: 60px; 
+            flex-direction: column; 
+            align-items: center;
         }
 
        
@@ -37,11 +37,13 @@
         .container {
             width: 100%;
             max-width: 1200px;
-            padding: 40px 7vw;
+            
+            padding: 40px 2vw 40px 2vw; 
             display: flex;
             flex-direction: column;
             align-items: flex-start; 
             z-index: 1;
+            flex-grow: 1;
         }
 
         .header-block {
@@ -79,6 +81,7 @@
             gap: 30px;
             width: 100%;
             max-width: 400px; 
+            margin-left: 4vw; 
         }
 
         
@@ -89,7 +92,7 @@
             user-select: none;
         }
 
-       
+        
         .clickable-img {
             width: 100%;
             height: auto;
@@ -117,25 +120,30 @@
             padding-top: 10px;
         }
 
-        
+       
         .crooked-text {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             line-height: 1.6;
             transform: rotate(-2deg); 
             display: inline-block;
         }
 
-        
+       
         .bottom-gif-container {
             width: 100%;
             display: flex;
             justify-content: center;
-            margin-top: 80px; 
+            align-items: center;
+            gap: 10px; 
+            margin-top: auto; 
+            padding-bottom: 20px; 
+            z-index: 1;
         }
 
         .bottom-gif {
             width: 50px; 
-            height: auto;
+            height: 50px; 
+            object-fit: cover; 
             border-radius: 0;
         }
     </style>
@@ -165,18 +173,23 @@
                 </p>
             </div>
         </div>
+    </div>
 
-        
-        <div class="bottom-gif-container">
-            <img src="https://i.pinimg.com/originals/5c/a9/8c/5ca98ce5af3feb8214b05cb644bf0a4d.gif" alt="cat" class="bottom-gif">
-        </div>
+    
+    <div class="bottom-gif-container">
+        <img src="https://i.pinimg.com/originals/5c/a9/8c/5ca98ce5af3feb8214b05cb644bf0a4d.gif" alt="cat" class="bottom-gif">
+        <img src="https://i.pinimg.com/736x/5f/88/eb/5f88eb69eae4683256cfc22bcc96712a.jpg" alt="worker" class="bottom-gif">
     </div>
 
     <script>
         const imgContainer = document.getElementById('imgContainer');
         const gifOverlay = document.getElementById('gifOverlay');
+        let explosionTimeout; 
 
         imgContainer.addEventListener('click', () => {
+            
+            clearTimeout(explosionTimeout);
+
             
             gifOverlay.style.backgroundImage = 'none';
             
@@ -185,6 +198,12 @@
             
             
             gifOverlay.style.backgroundImage = `url('boom.gif?t=${Date.now()}')`;
+
+            
+            
+            explosionTimeout = setTimeout(() => {
+                gifOverlay.style.backgroundImage = 'none';
+            }, 1500); 
         });
     </script>
 
