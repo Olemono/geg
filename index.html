@@ -6,15 +6,26 @@
     <title>Йо, это вебсайт яри</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
+        
+        @font-face {
+            font-family: 'Comic Sans MS';
+            src: url('Comic Sans MS.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            
+            cursor: url('https://avatanplus.com/files/resources/mid/56745fe7b910d151b696a14e.png'), auto;
         }
+        
         body {
             background-color: #63120d;
             color: #faddad;
-            font-family: sans-serif;
+            font-family: 'Comic Sans MS', sans-serif;
             min-height: 100vh;
             display: flex;
             flex-direction: column; 
@@ -36,9 +47,8 @@
 
         .container {
             width: 100%;
-            max-width: 1200px;
-            
-            padding: 40px 2vw 40px 2vw; 
+            max-width: 100%; 
+            padding: 40px 5vw 40px 5vw; 
             display: flex;
             flex-direction: column;
             align-items: flex-start; 
@@ -73,7 +83,7 @@
             display: block;
         }
 
-       
+        
         .content-block {
             display: flex;
             flex-direction: column;
@@ -81,14 +91,13 @@
             gap: 30px;
             width: 100%;
             max-width: 400px; 
-            margin-left: 4vw; 
+            margin-left: 10px; 
         }
 
         
         .image-wrapper {
             width: 100%;
             position: relative;
-            cursor: pointer;
             user-select: none;
         }
 
@@ -100,14 +109,14 @@
             border-radius: 0; 
         }
 
-        
+       
         .gif-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover; 
+            top: -10%; 
+            left: -10%; 
+            width: 120%;
+            height: 120%;
+            background-size: contain; 
             background-repeat: no-repeat;
             background-position: center;
             pointer-events: none; 
@@ -120,30 +129,31 @@
             padding-top: 10px;
         }
 
-       
+        
         .crooked-text {
-            font-size: 1.4rem;
-            line-height: 1.6;
+            font-size: 1.6rem;
+            line-height: 1.4;
             transform: rotate(-2deg); 
             display: inline-block;
         }
 
-       
+        
         .bottom-gif-container {
             width: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 10px; 
+            align-items: flex-end; 
+            gap: 15px; 
             margin-top: auto; 
-            padding-bottom: 20px; 
+            padding-bottom: 10px; 
             z-index: 1;
         }
 
+        
         .bottom-gif {
-            width: 50px; 
-            height: 50px; 
-            object-fit: cover; 
+            width: auto;
+            height: 45px; 
+            display: block;
             border-radius: 0;
         }
     </style>
@@ -154,7 +164,7 @@
         
         <div class="header-block">
             <h1 class="main-title">йо, это вебсайт яри</h1>
-            <span class="sub-title">Гэг</span>
+            <span class="sub-title">гэг</span>
         </div>
 
         
@@ -175,10 +185,11 @@
         </div>
     </div>
 
-    
+   
     <div class="bottom-gif-container">
         <img src="https://i.pinimg.com/originals/5c/a9/8c/5ca98ce5af3feb8214b05cb644bf0a4d.gif" alt="cat" class="bottom-gif">
-        <img src="https://i.pinimg.com/736x/5f/88/eb/5f88eb69eae4683256cfc22bcc96712a.jpg" alt="worker" class="bottom-gif">
+        <img src="https://i.pinimg.com/originals/eb/1b/27/eb1b27863813653543914d222ceb9cd0.gif" alt="worker 1" class="bottom-gif">
+        <img src="https://static.wixstatic.com/media/1dc4b7_2f30bf52c102403ea2196691f65f6220.gif" alt="worker 2" class="bottom-gif">
     </div>
 
     <script>
@@ -187,23 +198,18 @@
         let explosionTimeout; 
 
         imgContainer.addEventListener('click', () => {
-            
             clearTimeout(explosionTimeout);
 
-            
             gifOverlay.style.backgroundImage = 'none';
-            
             
             void gifOverlay.offsetWidth;
             
-            
             gifOverlay.style.backgroundImage = `url('boom.gif?t=${Date.now()}')`;
 
-            
-            
+           
             explosionTimeout = setTimeout(() => {
                 gifOverlay.style.backgroundImage = 'none';
-            }, 1500); 
+            }, 1000); 
         });
     </script>
 
