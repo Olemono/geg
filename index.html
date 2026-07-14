@@ -6,7 +6,6 @@
     <title>Йо, это вебсайт яри</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
-        
         @font-face {
             font-family: 'Comic Sans MS';
             src: url('Comic Sans MS.ttf') format('truetype');
@@ -18,7 +17,6 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            
             cursor: url('https://avatanplus.com/files/resources/mid/56745fe7b910d151b696a14e.png'), auto;
         }
         
@@ -32,7 +30,6 @@
             align-items: center;
         }
 
-       
         body::before, body::after {
             content: "";
             position: fixed;
@@ -83,25 +80,29 @@
             display: block;
         }
 
+        .main-layout {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
         
         .content-block {
             display: flex;
             flex-direction: column;
             align-items: flex-start; 
-            gap: 30px;
+            gap: 15px;
             width: 100%;
             max-width: 400px; 
-            margin-left: 10px; 
+            margin-left: 0px; 
         }
 
-        
         .image-wrapper {
             width: 100%;
             position: relative;
             user-select: none;
         }
 
-        
         .clickable-img {
             width: 100%;
             height: auto;
@@ -109,7 +110,6 @@
             border-radius: 0; 
         }
 
-       
         .gif-overlay {
             position: absolute;
             top: -10%; 
@@ -123,21 +123,33 @@
             border-radius: 0;
         }
 
-        
         .text-wrapper {
             width: 100%;
-            padding-top: 10px;
+            padding-top: 0px;
         }
 
-        
         .crooked-text {
             font-size: 1.6rem;
             line-height: 1.4;
-            transform: rotate(-2deg); 
+            transform: rotate(-4deg) translateX(-10px); 
             display: inline-block;
         }
 
-        
+        .right-link-btn {
+            margin-right: 10px;
+            border: none;
+            background: none;
+            padding: 0;
+            display: block;
+        }
+
+        .right-btn-img {
+            width: auto;
+            max-height: 150px;
+            display: block;
+            border-radius: 0;
+        }
+
         .bottom-gif-container {
             width: 100%;
             display: flex;
@@ -149,67 +161,122 @@
             z-index: 1;
         }
 
-        
         .bottom-gif {
             width: auto;
             height: 45px; 
             display: block;
             border-radius: 0;
         }
+
+        .subpage {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 5vw;
+            width: 90vw;
+            height: 100vh;
+            background-color: #fde4b5;
+            color: #962c03;
+            z-index: 100;
+            padding: 60px 40px;
+            overflow-y: auto;
+        }
+
+        .subpage-text {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            text-align: left;
+            max-width: 800px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 30px;
+            background-color: #962c03;
+            color: #fde4b5;
+            border: none;
+            padding: 10px 20px;
+            font-family: 'Comic Sans MS', sans-serif;
+            font-size: 1rem;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        
         <div class="header-block">
             <h1 class="main-title">йо, это вебсайт яри</h1>
             <span class="sub-title">гэг</span>
         </div>
 
-        
-        <div class="content-block">
-            
-            
-            <div class="image-wrapper" id="imgContainer">
-                <img src="https://file.garden/alTn_6MGUV82xkxX/gegcomputer.png?v=1783972439610" alt="Geg Computer" class="clickable-img">
-                <div class="gif-overlay" id="gifOverlay"></div>
+        <div class="main-layout">
+            <div class="content-block">
+                <div class="image-wrapper" id="imgContainer">
+                    <img src="https://file.garden/alTn_6MGUV82xkxX/gegcomputer.png?v=1783972439610" alt="Geg Computer" class="clickable-img">
+                    <div class="gif-overlay" id="gifOverlay"></div>
+                </div>
+
+                <div class="text-wrapper">
+                    <p class="crooked-text">
+                        йо тут будет потом важный текст йо тут будет потом важный текст йо тут будет потом важный текст йо тут будет потом важный текст йо тут будет потом важный текст йо тут будет потом важный текст
+                    </p>
+                </div>
             </div>
 
-            
-            <div class="text-wrapper">
-                <p class="crooked-text">
-                    йо тут будет потом важный текст йо тут будет потом важный текст йо тут будет потом важный текст йо тут будет потом важный текст йо тут будет потом важный текст йо тут будет потом важный текст
-                </p>
-            </div>
+            <button class="right-link-btn" id="openSubpage">
+                <img src="https://file.garden/alTn_6MGUV82xkxX/1pichka.png?v=1784048999361" alt="Link Button" class="right-btn-img">
+            </button>
         </div>
     </div>
 
-   
     <div class="bottom-gif-container">
         <img src="https://i.pinimg.com/originals/5c/a9/8c/5ca98ce5af3feb8214b05cb644bf0a4d.gif" alt="cat" class="bottom-gif">
         <img src="https://i.pinimg.com/originals/eb/1b/27/eb1b27863813653543914d222ceb9cd0.gif" alt="worker 1" class="bottom-gif">
         <img src="https://static.wixstatic.com/media/1dc4b7_2f30bf52c102403ea2196691f65f6220.gif" alt="worker 2" class="bottom-gif">
     </div>
 
+    <div class="subpage" id="subpageContainer">
+        <button class="back-btn" id="closeSubpage">← Назад</button>
+        <div class="subpage-text">
+            Добрый вам денёк, меня зовут Яри. А так же у меня есть другие ники, если вы со мной знакомы то можете знать некоторые. Они представлены чуть ниже. Сайт я создавала для себя, очень хотелось вложить что то своё. Да в основном бесполезная бредятина по большей части, да упустим это здесь
+        </div>
+    </div>
+
     <script>
         const imgContainer = document.getElementById('imgContainer');
         const gifOverlay = document.getElementById('gifOverlay');
+        const openSubpage = document.getElementById('openSubpage');
+        const closeSubpage = document.getElementById('closeSubpage');
+        const subpageContainer = document.getElementById('subpageContainer');
         let explosionTimeout; 
 
         imgContainer.addEventListener('click', () => {
             clearTimeout(explosionTimeout);
-
             gifOverlay.style.backgroundImage = 'none';
-            
             void gifOverlay.offsetWidth;
-            
             gifOverlay.style.backgroundImage = `url('boom.gif?t=${Date.now()}')`;
-
-           
             explosionTimeout = setTimeout(() => {
                 gifOverlay.style.backgroundImage = 'none';
             }, 1000); 
+        });
+
+        openSubpage.addEventListener('click', () => {
+            subpageContainer.style.display = 'block';
+            window.history.pushState({page: 'itsme'}, 'Its Me', '/itsme');
+        });
+
+        closeSubpage.addEventListener('click', () => {
+            subpageContainer.style.display = 'none';
+            window.history.pushState({page: 'main'}, 'Main', '/');
+        });
+
+        window.addEventListener('popstate', (event) => {
+            if (event.state && event.state.page === 'itsme') {
+                subpageContainer.style.display = 'block';
+            } else {
+                subpageContainer.style.display = 'none';
+            }
         });
     </script>
 
